@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
 
 User = get_user_model()
 
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(UserAdmin):
     list_display = ['id', 'nickname', 'email', 'is_active', 'is_staff', 'is_superuser']
     list_display_links = ['id', 'nickname', 'email']
     search_fields = ['nickname', 'email']
