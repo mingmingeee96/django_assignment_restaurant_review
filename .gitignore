@@ -1,0 +1,4 @@
+.idea
+.python-version
+secret.json
+poetry.lock
