@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 import json
 
@@ -99,6 +100,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -107,6 +109,19 @@ REST_FRAMEWORK = {
 
 # Authentication
 AUTH_USER_MODEL = 'users.User'
+
+# simple jwt
+
+SIMPLE_JWT = {
+    # 엑세스 토큰의 유효 기간 설정
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    # 리프레쉬 토큰의 유효 기간 설정
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    # jwt 로그인 시 last_login 업데이트 설정
+    "UPDATE_LAST_LOGIN": True,
+    # jwt 암호화 알고리즘
+    "ALGORITHM": "HS256",
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
