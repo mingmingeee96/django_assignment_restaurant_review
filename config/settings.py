@@ -35,7 +35,8 @@ CUSTOM_APPS = [
 THIRD_PARTY_APPS = [
     'django_extensions',
     'rest_framework',
-    'django_cleanup'
+    'django_cleanup',
+    'drf_yasg',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
