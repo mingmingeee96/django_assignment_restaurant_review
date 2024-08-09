@@ -1,4 +1,5 @@
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView, get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 from restaurants.models import Restaurant
 from reviews.models import Review
 from reviews.serializers import ReviewSerializer, ReviewDetailSerializer
@@ -21,6 +22,7 @@ class ReviewListCreateView(ListCreateAPIView):
 
 class ReviewDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewDetailSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_object(self):
         return Review.objects.get(id=self.kwargs.get('review_id'), user=self.request.user)
