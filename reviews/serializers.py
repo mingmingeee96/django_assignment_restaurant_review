@@ -12,7 +12,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = "__all__"
         # user, restaurant 필드는 serializer.save()의 인자로 전달할 것이기 때문에 읽기 전용 필드로 설정
-        read_only_fields = ["id", "user", "restaurant"]
+        read_only_fields = ["id", "restaurant"]
 
 
 class ReviewDetailSerializer(serializers.ModelSerializer):
