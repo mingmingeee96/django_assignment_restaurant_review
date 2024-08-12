@@ -2,7 +2,7 @@ from datetime import timedelta
 from pathlib import Path
 import json
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # 환경변수 가져오기
 with open(BASE_DIR / 'secret.json') as f:
